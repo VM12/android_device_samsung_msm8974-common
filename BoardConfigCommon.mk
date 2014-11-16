@@ -21,6 +21,7 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno330
 
 # Architecture
 TARGET_CPU_VARIANT := krait
+TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
@@ -28,6 +29,7 @@ TARGET_USES_QCOM_COMPRESSED_AUDIO := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
+BLUETOOTH_HCI_USE_MCT := true
 
 # Camera
 TARGET_PROVIDES_CAMERA_HAL := true
@@ -46,6 +48,7 @@ BOARD_CHARGING_CMDLINE_VALUE := "true"
 BOARD_EGL_CFG := device/samsung/msm8974-common/configs/egl.cfg
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
+BOARD_USES_LEGACY_MMAP := true
 
 # Shader cache config options
 # Maximum size of the  GLES Shaders that can be cached for reuse.
@@ -93,6 +96,12 @@ BOARD_SEPOLICY_UNION += \
 
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
+
+# Enable Minikin text layout engine (will be the default soon)
+USE_MINIKIN := true
+
+# Include an expanded selection of fonts
+EXTENDED_FONT_FOOTPRINT := true
 
 # Vold
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
