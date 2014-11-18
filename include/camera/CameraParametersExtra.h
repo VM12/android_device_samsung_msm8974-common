@@ -22,7 +22,23 @@ const char CameraParameters::KEY_ZSL[] = "zsl"; \
 const char CameraParameters::ZSL_ON[] = "on"; \
 const char CameraParameters::ZSL_OFF[] = "off"; \
 \
-int CameraParameters::getInt64(const char *key) const { return -1; }
+const char CameraParameters::KEY_DYNAMIC_RANGE_CONTROL[] = "dynamic-range-control"; \
+const char CameraParameters::KEY_SUPPORTED_DYNAMIC_RANGE_CONTROL[] = "dynamic-range-control-values"; \
+\
+const char CameraParameters::KEY_PHASE_AF[] = "phase-af"; \
+const char CameraParameters::KEY_SUPPORTED_PHASE_AF[] = "phase-af-values"; \
+\
+const char CameraParameters::KEY_RT_HDR[] = "rt-hdr"; \
+const char CameraParameters::KEY_SUPPORTED_RT_HDR[] = "rt-hdr-values"; \
+\
+const char CameraParameters::DRC_ON[] = "on"; \
+const char CameraParameters::DRC_OFF[] = "off"; \
+\
+const char CameraParameters::PAF_ON[] = "on"; \
+const char CameraParameters::PAF_OFF[] = "off"; \
+\
+const char CameraParameters::RTHDR_ON[] = "on"; \
+const char CameraParameters::RTHDR_OFF[] = "off";
 
 #define CAMERA_PARAMETERS_EXTRA_H \
     static const char KEY_DIS[]; \
@@ -32,4 +48,21 @@ int CameraParameters::getInt64(const char *key) const { return -1; }
     static const char ZSL_ON[]; \
     static const char ZSL_OFF[]; \
     \
-    int getInt64(const char *key) const;
+    static const char KEY_DYNAMIC_RANGE_CONTROL[]; \
+    static const char KEY_SUPPORTED_DYNAMIC_RANGE_CONTROL[]; \
+    \
+    static const char KEY_PHASE_AF[]; \
+    static const char KEY_SUPPORTED_PHASE_AF[]; \
+    \
+    static const char KEY_RT_HDR[]; \
+    static const char KEY_SUPPORTED_RT_HDR[]; \
+    \
+    static const char DRC_ON[]; \
+    static const char DRC_OFF[]; \
+    \
+    static const char PAF_ON[]; \
+    static const char PAF_OFF[]; \
+    \
+    static const char RTHDR_ON[]; \
+    static const char RTHDR_OFF[];
+

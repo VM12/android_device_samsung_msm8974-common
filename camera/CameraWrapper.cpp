@@ -103,7 +103,7 @@ static int check_vendor_module()
 #define KEY_VIDEO_HFR_VALUES "video-hfr-values"
 
 static char *camera_fixup_getparams(int __attribute__((unused)) id,
-	const char *settings)
+    const char *settings)
 {
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
