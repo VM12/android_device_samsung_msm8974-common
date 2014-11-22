@@ -59,6 +59,9 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
 
+# Enable Minikin text layout engine (will be the default soon)
+USE_MINIKIN := true
+
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
 
