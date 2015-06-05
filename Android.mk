@@ -90,10 +90,10 @@ $(MC_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 ALL_DEFAULT_INSTALLED_MODULES += $(MC_SYMLINKS)
 
 MODEM_IMAGES := \
-    modem.b00 modem.b01 modem.b02 modem.b03 modem.b04 modem.b05 \
-    modem.b08 modem.b10 modem.b11 modem.b13 modem.b14 modem.b15 \
-    modem.b16 modem.b17 modem.b18 modem.b19 modem.b20 modem.b21 \
-    modem.b22 modem.b25 modem.b26 modem.b27 modem.mdt
+    modem.b00 modem.b01 modem.b02 modem.b03 modem.b04 modem.b05 modem.b06 \
+    modem.b08 modem.b09 modem.b10 modem.b11 modem.b12 modem.b13 modem.b14 \
+    modem.b15 modem.b16 modem.b17 modem.b18 modem.b19 modem.b20 modem.b21 \
+    modem.b22 modem.b23 modem.b24 modem.b25 modem.b26 modem.b27 modem.mdt
 
 MODEM_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(MODEM_IMAGES)))
 $(MODEM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
@@ -103,6 +103,42 @@ $(MODEM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /firmware-modem/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(MODEM_SYMLINKS)
+
+PROV_MODEM_IMAGES := \
+    prov.b00 prov.b01 prov.b02 prov.b03 prov.mdt
+
+PROV_MODEM_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(PROV_MODEM_IMAGES)))
+$(PROV_MODEM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "Prov Firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(PROV_MODEM_SYMLINKS)
+
+ACTLOCK_IMAGES := \
+    act_lock.b00 act_lock.b01 act_lock.b02 act_lock.b03 act_lock.mdt
+
+ACTLOCK_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(ACTLOCK_IMAGES)))
+$(ACTLOCK_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "Actlock firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(ACTLOCK_SYMLINKS)
+
+TKM_IMAGES := \
+    t2_ks_mi.b00 t2_ks_mi.b01 t2_ks_mi.b02 t2_ks_mi.b03 t2_ks_mi.mdt
+
+TKM_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(TKM_IMAGES)))
+$(TKM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "TKM firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(TKM_SYMLINKS)
 
 PLAYREADY_IMAGES := \
     playread.b00 playread.b01 playread.b02 playread.b03 playread.mdt
@@ -191,6 +227,18 @@ $(TZPR_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(TZPR_SYMLINKS)
 
+TZ_CCM_IMAGES := \
+    tz_ccm.b00 tz_ccm.b01 tz_ccm.b02 tz_ccm.b03 tz_ccm.mdt
+
+TZ_CCM_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(TZ_CCM_IMAGES)))
+$(TZ_CCM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "TZ_CCM firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(TZ_CCM_SYMLINKS)
+
 VENUS_IMAGES := \
     venus.b00 venus.b01 venus.b02 venus.b03 venus.b04 venus.mdt
 
@@ -204,6 +252,7 @@ $(VENUS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 ALL_DEFAULT_INSTALLED_MODULES += $(VENUS_SYMLINKS)
 
 WV_IMAGES := \
+    cmnlib.b00 cmnlib.b01 cmnlib.b02 cmnlib.b03 cmnlib.mdt \
     widevine.b00 widevine.b01 widevine.b02 widevine.b03 widevine.mdt
 
 WV_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/,$(notdir $(WV_IMAGES)))
